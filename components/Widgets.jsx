@@ -30,7 +30,7 @@ function Widgets({ trendingResults, followResults }) {
         className="dark:text-[#d9d9d9] text-black space-y-3 dark:bg-[#15181c] bg-gray-100 pt-2 rounded-xl
       w-11/12 xl:w-9/12"
       >
-        <h4 className="font-bold text-xl px-4">What's happening</h4>
+        <h4 className="font-bold text-xl px-4">What&apos;s happening</h4>
         {trendingResults.map((result, index) => (
           <Trending key={index} result={result} />
         ))}
@@ -57,6 +57,7 @@ function Widgets({ trendingResults, followResults }) {
             <img
               src={result.userImg}
               className="object-cover rounded-full w-12 h-12"
+              alt=""
             />
             <div className="ml-4 leading-5 group">
               <h4 className="font-bold group-hover:underline">
