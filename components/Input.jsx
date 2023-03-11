@@ -80,18 +80,18 @@ function Input() {
 
   return (
     <div
-      className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll scrollbar-hide`}
+      className={`border-b dark:border-gray-700 border-gray-150 p-3 flex space-x-3 overflow-y-scroll scrollbar-hide`}
     >
       <img className="h-11 w-11 rounded-full cursor-pointer" src={session.user.image} alt="" />
 
-      <div className="w-full divide-y divide-gray-700">
+      <div className="w-full divide-y dark:divide-gray-700 divide-gray-150">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             rows="2"
             placeholder="What's happening?"
-            className="bg-transparent outline-none text-[#d9d9d9]
+            className="bg-transparent outline-none dark:text-[#d9d9d9] text-black
             text-lg placeholder-gray-500 tracking-wide w-full min-h-[50px]"
           />
 
@@ -136,7 +136,7 @@ function Input() {
             </div>
 
             {showEmojis && (
-              <Picker onEmojiSelect={addEmoji} data={data} theme="dark" />
+              <Picker onEmojiSelect={addEmoji} data={data}/>
             )}
           </div>
           <button

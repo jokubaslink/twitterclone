@@ -8,10 +8,10 @@ function Widgets({ trendingResults, followResults }) {
     py-1 space-y-5"
     >
       <div
-        className="sticky top-0 py-1.5 bg-black 
+        className="sticky top-0 py-1.5 dark:bg-black bg-white
         z-50 w-11/12 xl:w-9/12"
       >
-        <div className="flex items-center bg-[#202327] p-3 rounded-full relative">
+        <div className="flex items-center dark:bg-[#202327] bg-gray-100 p-3 rounded-full relative">
           <SearchIcon
             className="text-gray-500 h-5 z-50"
           />
@@ -19,7 +19,7 @@ function Widgets({ trendingResults, followResults }) {
             type="text"
             className="bg-transparent 
           placeholder-gray-500 outline-none text-[#d9d9d9]
-          absolute inset-0 pl-11 border border-transparent w-full focus:border-[#1d9bf0] rounded-full focus:bg-black focus:shadow-lg
+          absolute inset-0 pl-11 border border-transparent w-full focus:border-[#1d9bf0] rounded-full dark:focus:bg-black focus:bg-white focus:shadow-lg
           "
             placeholder="Search Twitter"
           />
@@ -27,7 +27,7 @@ function Widgets({ trendingResults, followResults }) {
       </div>
 
       <div
-        className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl
+        className="dark:text-[#d9d9d9] text-black space-y-3 dark:bg-[#15181c] bg-gray-100 pt-2 rounded-xl
       w-11/12 xl:w-9/12"
       >
         <h4 className="font-bold text-xl px-4">What's happening</h4>
@@ -44,7 +44,7 @@ function Widgets({ trendingResults, followResults }) {
       </div>
 
       <div
-        className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl
+        className="dark:text-[#d9d9d9] text-black space-y-3 dark:bg-[#15181c]  bg-gray-100 pt-2 rounded-xl
       w-11/12 xl:w-9/12"
       >
         <h4 className="font-bold text-xl px-4">Who to follow</h4>
@@ -64,7 +64,7 @@ function Widgets({ trendingResults, followResults }) {
               </h4>
               <h5 className="text-gray-500 text-[15px]">{result.tag}</h5>
             </div>
-            <button className="ml-auto bg-white text-black rounded-full font-bold text-sm py-1.5 px-3.5">
+            <button className="ml-auto dark:bg-white bg-[#0F1419] dark:text-black text-white rounded-full font-bold text-sm py-1.5 px-3.5">
               Follow
             </button>
           </div>

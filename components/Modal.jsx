@@ -41,18 +41,18 @@ function Modal() {
     e.preventDefault();
 
     await addDoc(collection(db, "posts", postId, "comments"), {
-        comment: comment,
-        username: session.user.name,
-        tag: session.user.tag,
-        userImg: session.user.image,
-        timestamp: serverTimestamp(),
-      });  
+      comment: comment,
+      username: session.user.name,
+      tag: session.user.tag,
+      userImg: session.user.image,
+      timestamp: serverTimestamp(),
+    });
 
     setIsOpen(false);
     setComment("");
 
     router.push(`/${postId}`);
-  }
+  };
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
@@ -68,8 +68,8 @@ function Modal() {
             leaveTo="opacity-0"
           >
             <Dialog.Overlay
-              className="fixed inset-0 bg-[#5b7083] 
-            bg-opacity-40 transition-opacity"
+              className="fixed inset-0 dark:bg-[#5b7083] bg-[#999999]
+            dark:bg-opacity-40 bg-opacity-40 transition-opacity"
             />
           </Transition.Child>
 
@@ -83,17 +83,17 @@ function Modal() {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div
-              className="inline-block align-bottom bg-black rounded-2xl
+              className="inline-block align-bottom dark:bg-black bg-white rounded-2xl
              text-left overflow-hidden shadow-xl transform transition-all
               sm:my-8 sm:align-middle sm:max-w-xl sm:w-full"
             >
-              <div className="flex items-center px-1.5 py-2 border-b border-gray-700">
+              <div className="flex items-center px-1.5 py-2 border-b dark:border-gray-700 border-gray-150">
                 <div
                   className="hoverAnimation w-9 h-9 flex 
                     items-center justify-center xl:px-0"
                   onClick={() => setIsOpen(false)}
                 >
-                  <XIcon className="h-[22px] text-white" />
+                  <XIcon className="h-[22px] dark:text-white text-black" />
                 </div>
               </div>
               <div className="flex px-4 pt-5 pb-2.5 sm:px-6">
@@ -104,7 +104,7 @@ function Modal() {
                   >
                     <span
                       className="w-0.5 h-full z-[-1] absolute
-                            left-5 top-11 bg-gray-600"
+                            left-5 top-11 dark:bg-gray-600 bg-gray-300"
                     />
                     <img
                       src={post?.userImg}
@@ -114,7 +114,7 @@ function Modal() {
                     />
                     <div>
                       <div className="inline-block group">
-                        <h4 className="font-bold text-[15px] sm:text-base text-[#d9d9d9] inline-block">
+                        <h4 className="font-bold text-[15px] sm:text-base dark:text-[#d9d9d9] text-black inline-block">
                           {post?.username}
                         </h4>
                         <span className="ml-1.5 text-sm sm:text-[15px]">
@@ -125,7 +125,7 @@ function Modal() {
                       <span className="hover:underline text-sm sm:text-[15px]">
                         <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
                       </span>
-                      <p className="text-[#d9d9d9] text-[15px] sm:text-base">
+                      <p className="dark:text-[#d9d9d9] text-black text-[15px] sm:text-base">
                         {post?.text}
                       </p>
                     </div>
@@ -143,7 +143,7 @@ function Modal() {
                         onChange={(e) => setComment(e.target.value)}
                         placeholder="Tweet your reply"
                         rows="2"
-                        className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
+                        className="bg-transparent outline-none dark:text-[#d9d9d9] text-black text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
                       />
 
                       <div className="flex items-center justify-between pt-2.5">

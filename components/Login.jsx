@@ -1,14 +1,34 @@
 import { signIn } from "next-auth/react";
+import React, {useState, useEffect} from "react"
 
 function Login({ providers }) {
+  const [mode, setMode] = useState();
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches === false) {
+      setMode("light");
+    } else {
+      setMode("dark");
+    }
+  }, []);
+
   return (
-    <div className="flex flex-col items-center space-y-20 pt-48">
-      <img
-        src="https://icon-library.com/images/twitter-icon-svg/twitter-icon-svg-28.jpg"
-        width={150}
-        height={150}
-        objectFit="contain"
-      />
+    <div className="dark:bg-black bg-white flex flex-col items-center space-y-20 pt-48 h-screen">
+        {mode === "dark" ? (
+          <img
+            src="https://icon-library.com/images/twitter-icon-svg/twitter-icon-svg-28.jpg"
+            width={150}
+            height={150}
+            objectFit="contain"
+          />
+        ) : (
+          <img
+            src="https://icon-library.com/images/twitter-svg-icon/twitter-svg-icon-28.jpg"
+            width={150}
+            height={150}
+            objectFit="contain"
+          />
+        )}
       <div className="">
         {Object.values(providers).map((provider) => (
           <div key={provider.name}>

@@ -15,13 +15,13 @@ export default function Home({ trendingResults, followResults, providers }) {
   if (!session) return <Login providers={providers} />;
 
   return (
-    <div className="">
+    <div className="dark:bg-black bg-white">
       <Head>
         <title>Home / Twitter</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
+      <main className="dark:bg-black bg-white min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar />
         <Feed />
         <Widgets
