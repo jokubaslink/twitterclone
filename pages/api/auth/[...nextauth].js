@@ -13,14 +13,14 @@ export const authOptions = {
     async session({ session, token }) {
       session.user.tag = session.user.name
         .split(" ")
-        .join(" ")
+        .join("")
         .toLocaleLowerCase();
 
         session.user.uid = token.sub;
         return session;
     },
   },
-  secret: process.env.JWT_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
